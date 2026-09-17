@@ -1,1 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Math - Train Your Brain</title>
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --text-color: #333;
+            --bg-color: #f5f5f7;
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #111;
+        }
+        .tagline {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .main-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .features {
+            text-align: left;
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+        .badge-container {
+            margin-top: 30px;
+        }
+        .badge-container img {
+            height: 50px;
+            transition: transform 0.2s;
+        }
+        .badge-container img:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .legal-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            margin-top: 40px;
+            text-align: left;
+            display: none;
+        }
+        .legal-section:target {
+            display: block;
+        }
+    </style>
+</head>
+<body>
 
+<div class="container">
+    <!-- HEADER: App Presentation -->
+    <header>
+        <h1>Mental Math</h1>
+        <p class="tagline">Challenge your brain and improve your calculation speed!</p>
+    </header>
+
+    <main class="main-card">
+        <h2>About the App</h2>
+        <p>Mental Math is a playful and engaging brain trainer designed to improve your mental calculation skills. Train your abilities across various mathematical disciplines, track your speed, and beat your own high scores.</p>
+        
+        <ul class="features">
+            <li><strong>Diverse Exercises:</strong> Addition, subtraction, multiplication, and division.</li>
+            <li><strong>Speed Training:</strong> Solve as many math problems as you can before the time runs out.</li>
+            <li><strong>Secure Sign-In:</strong> Use your Google Account for a quick and secure authentication (OAuth 2.0). We do not store your personal profile data on external servers.</li>
+        </ul>
+
+        <!-- Official Google Play Badge (English Version) -->
+        <div class="badge-container">
+            <a href="YOUR_GOOGLE_PLAY_STORE_LINK" target="_blank">
+                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+            </a>
+        </div>
+    </main>
+
+    <!-- FOOTER: Legal Links -->
+    <footer>
+        <p>&copy; 2026 Five Days Weekend Games. All rights reserved.</p>
+        <a href="#legal-notice">Legal Notice (Impressum)</a> | <a href="#privacy-policy">Privacy Policy</a>
+    </footer>
+
+    <!-- LEGAL: Impressum (German TMG compliant but in English) -->
+    <div id="legal-notice" class="legal-section">
+        <h3>Legal Notice (Impressum)</h3>
+        <p><strong>Information according to § 5 TMG (Germany):</strong></p>
+        <p>
+            Michael Dziuballe<br>
+            Max-Liebermann-Str. 21<br>
+            74321 Bietigheim-Bissingen<br>
+            Germany
+        </p>
+        <p><strong>Contact:</strong><br>
+            Email: fivedaysweekendgames@gmail.com
+        </p>
+        <p><a href="#">Back to top</a></p>
+    </div>
+
+    <!-- PRIVACY POLICY: GDPR & Google OAuth Compliant -->
+    <div id="privacy-policy" class="legal-section">
+        <h3>Privacy Policy</h3>
+        <h4>1. Privacy at a Glance</h4>
+        <p>This privacy policy informs you about the nature, scope, and purpose of the processing of personal data within our application "Mental Math" and this website. We treat your data confidentially and in accordance with statutory data protection regulations (GDPR).</p>
+        
+        <h4>2. Data Processing via Google Sign-In (OAuth 2.0)</h4>
+        <p>Our application offers the option to authenticate using the Google Sign-In service. When you use this service, the application requests access to basic profile information from your Google Account (specifically your name and email address) via the official Google OAuth 2.0 procedure.</p>
+        <p><strong>How we use this data:</strong> This data is processed <strong>strictly locally</strong> on your device to display your user profile within the app interface (e.g., showing your name in the main menu). We do not transfer, upload, or store this data on any external servers. We do not track, sell, or share your personal data with third parties.</p>
+
+        <h4>3. Your Rights</h4>
+        <p>Under the GDPR, you have the right to receive information about your stored personal data free of charge at any time. You also have the right to request the correction or erasure of this data. Since no user data is stored on our infrastructure, you can revoke the app's access at any time within your Google Account security settings.</p>
+        <p><a href="#">Back to top</a></p>
+    </div>
+</div>
+
+</body>
+</html>
