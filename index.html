@@ -8,8 +8,6 @@
         :root {
             --primary-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
             --accent-color: #00d2ff;
-            --glass-bg: rgba(255, 255, 255, 0.06);
-            --glass-border: rgba(255, 255, 255, 0.1);
             --text-main: #ffffff;
             --text-sub: #b0bec5;
         }
@@ -32,7 +30,6 @@
             overflow-x: hidden;
         }
 
-        /* Hero Container analog zu Down Dog */
         .hero-section {
             flex: 1;
             display: flex;
@@ -66,7 +63,6 @@
             animation: fadeIn 1.2s ease-out;
         }
 
-        /* Elegante Store Buttons */
         .badge-container {
             display: flex;
             justify-content: center;
@@ -87,76 +83,6 @@
             box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
         }
 
-        /* Rechtliche Texte als edle Overlays */
-        .legal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 25, 30, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            overflow-y: auto;
-            padding: 40px 20px;
-        }
-
-        .legal-overlay:target {
-            display: flex;
-            justify-content: center;
-        }
-
-        .legal-content {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            max-width: 700px;
-            width: 100%;
-            border-radius: 24px;
-            padding: 40px;
-            align-self: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-
-        .legal-content h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-            border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 10px;
-        }
-
-        .legal-content h4 {
-            font-size: 1.2rem;
-            margin: 20px 0 10px 0;
-            color: #ffffff;
-        }
-
-        .legal-content p {
-            color: var(--text-sub);
-            line-height: 1.6;
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
-
-        .close-btn {
-            display: inline-block;
-            margin-top: 30px;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 600;
-            background: rgba(255,255,255,0.1);
-            padding: 10px 24px;
-            border-radius: 30px;
-            transition: background 0.2s;
-        }
-
-        .close-btn:hover {
-            background: var(--accent-color);
-            color: #0f2027;
-        }
-
-        /* Minimalistischer Down-Dog Footer */
         footer {
             width: 100%;
             text-align: center;
@@ -192,64 +118,24 @@
 </head>
 <body>
 
-    <!-- HERO SECTION (Down Dog Style) -->
     <div class="hero-section">
         <h1 class="app-logo">Mental Math</h1>
         <p class="tagline">Challenge your brain, improve your calculation speed, and master your mind.</p>
 
-        <!-- Official Store Badges -->
         <div class="badge-container">
-            <a href="https://play.google.com/store/apps/details?id=com.fivedaysweekend.math" target="_blank">
+            <a href="YOUR_GOOGLE_PLAY_STORE_LINK" target="_blank">
                 <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
             </a>
-            <!-- Platzhalter für zukünftigen App Store Link -->
-            <!-- <a href="#" target="_blank"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a> -->
         </div>
     </div>
 
-    <!-- MINIMAL FOOTER -->
     <footer>
         <p>&copy; 2026 Five Days Weekend Games. All rights reserved.</p>
         <p style="margin-top: 8px;">
-            <a href="#legal-notice">Legal Notice</a>
-            <a href="#privacy-policy">Privacy Policy</a>
+            <a href="legal.html">Legal Notice</a>
+            <a href="privacy.html">Privacy Policy</a>
         </p>
     </footer>
-
-    <!-- OVERLAY: Legal Notice (Impressum) -->
-    <div id="legal-notice" class="legal-overlay">
-        <div class="legal-content">
-            <h3>Legal Notice</h3>
-            <p><strong>Information according to § 5 TMG (Germany):</strong></p>
-            <p style="margin-top: 15px;">
-                Michael Dziuballe<br>
-                Max-Liebermann-Str.21<br>
-                74321 Bietigheim-Bissingen<br>
-                Germany
-            </p>
-            <p><strong>Contact:</strong><br>
-                Email: fivedaysweekendgames@gmail.com
-            </p>
-            <a href="#" class="close-btn">Close</a>
-        </div>
-    </div>
-
-    <!-- OVERLAY: Privacy Policy -->
-    <div id="privacy-policy" class="legal-overlay">
-        <div class="legal-content">
-            <h3>Privacy Policy</h3>
-            <h4>1. Privacy at a Glance</h4>
-            <p>This privacy policy informs you about the nature, scope, and purpose of the processing of personal data within our application "Mental Math" and this website. We treat your data confidentially and in accordance with statutory data protection regulations (GDPR).</p>
-            
-            <h4>2. Data Processing via Google Sign-In (OAuth 2.0)</h4>
-            <p>Our application offers the option to authenticate using the Google Sign-In service. When you use this service, the application requests access to basic profile information from your Google Account (specifically your name and email address) via the official Google OAuth 2.0 procedure.</p>
-            <p><strong>How we use this data:</strong> This data is processed <strong>strictly locally</strong> on your device to display your user profile within the app interface (e.g., showing your name in the main menu). We do not transfer, upload, or store this data on any external servers. We do not track, sell, or share your personal data with third parties.</p>
-
-            <h4>3. Your Rights</h4>
-            <p>Under the GDPR, you have the right to receive information about your stored personal data free of charge at any time. You also have the right to request the correction or erasure of this data. Since no user data is stored on our infrastructure, you can revoke the app's access at any time within your Google Account security settings.</p>
-            <a href="#" class="close-btn">Close</a>
-        </div>
-    </div>
 
 </body>
 </html>
