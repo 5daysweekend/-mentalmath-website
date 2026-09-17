@@ -3,157 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mental Math - Train Your Brain</title>
+    <title>Mental Math — Challenge Your Brain</title>
     <style>
         :root {
-            --primary-color: #2196F3;
-            --text-color: #333;
-            --bg-color: #f5f5f7;
-            --card-bg: #ffffff;
+            --primary-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            --accent-color: #00d2ff;
+            --glass-bg: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #ffffff;
+            --text-sub: #b0bec5;
         }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            line-height: 1.6;
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--primary-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* Hero Container analog zu Down Dog */
+        .hero-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .app-logo {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #ffffff, #00d2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--text-sub);
+            margin-bottom: 40px;
+            max-width: 450px;
+            line-height: 1.4;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        /* Elegante Store Buttons */
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            animation: fadeIn 1.4s ease-out;
+        }
+
+        .badge-container img {
+            height: 52px;
+            border-radius: 7px;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+        }
+
+        .badge-container img:hover {
+            transform: scale(1.06);
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
+        }
+
+        /* Rechtliche Texte als edle Overlays */
+        .legal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 25, 30, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            overflow-y: auto;
             padding: 40px 20px;
         }
-        header {
-            text-align: center;
-            padding: 40px 0;
+
+        .legal-overlay:target {
+            display: flex;
+            justify-content: center;
         }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #111;
+
+        .legal-content {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            max-width: 700px;
+            width: 100%;
+            border-radius: 24px;
+            padding: 40px;
+            align-self: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
-        .tagline {
+
+        .legal-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 10px;
+        }
+
+        .legal-content h4 {
             font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 30px;
+            margin: 20px 0 10px 0;
+            color: #ffffff;
         }
-        .main-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
-            text-align: center;
+
+        .legal-content p {
+            color: var(--text-sub);
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
         }
-        .features {
-            text-align: left;
-            margin: 20px 0;
-            padding-left: 20px;
-        }
-        .badge-container {
+
+        .close-btn {
+            display: inline-block;
             margin-top: 30px;
-        }
-        .badge-container img {
-            height: 50px;
-            transition: transform 0.2s;
-        }
-        .badge-container img:hover {
-            transform: scale(1.05);
-        }
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-            font-size: 0.9rem;
-        }
-        footer a {
-            color: var(--primary-color);
+            color: #ffffff;
             text-decoration: none;
-            margin: 0 10px;
+            font-weight: 600;
+            background: rgba(255,255,255,0.1);
+            padding: 10px 24px;
+            border-radius: 30px;
+            transition: background 0.2s;
         }
+
+        .close-btn:hover {
+            background: var(--accent-color);
+            color: #0f2027;
+        }
+
+        /* Minimalistischer Down-Dog Footer */
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.4);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            margin: 0 12px;
+            transition: color 0.2s;
+        }
+
         footer a:hover {
-            text-decoration: underline;
+            color: var(--accent-color);
         }
-        .legal-section {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-            margin-top: 40px;
-            text-align: left;
-            display: none;
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .legal-section:target {
-            display: block;
+
+        @media (max-width: 480px) {
+            .app-logo { font-size: 2.8rem; }
+            .tagline { font-size: 1.15rem; }
+            .badge-container { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <!-- HEADER: App Presentation -->
-    <header>
-        <h1>Mental Math</h1>
-        <p class="tagline">Challenge your brain and improve your calculation speed!</p>
-    </header>
+    <!-- HERO SECTION (Down Dog Style) -->
+    <div class="hero-section">
+        <h1 class="app-logo">Mental Math</h1>
+        <p class="tagline">Challenge your brain, improve your calculation speed, and master your mind.</p>
 
-    <main class="main-card">
-        <h2>About the App</h2>
-        <p>Mental Math is a playful and engaging brain trainer designed to improve your mental calculation skills. Train your abilities across various mathematical disciplines, track your speed, and beat your own high scores.</p>
-        
-        <ul class="features">
-            <li><strong>Diverse Exercises:</strong> Addition, subtraction, multiplication, and division.</li>
-            <li><strong>Speed Training:</strong> Solve as many math problems as you can before the time runs out.</li>
-            <li><strong>Secure Sign-In:</strong> Use your Google Account for a quick and secure authentication (OAuth 2.0). We do not store your personal profile data on external servers.</li>
-        </ul>
-
-        <!-- Official Google Play Badge (English Version) -->
+        <!-- Official Store Badges -->
         <div class="badge-container">
             <a href="https://play.google.com/store/apps/details?id=com.fivedaysweekend.math" target="_blank">
                 <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
             </a>
+            <!-- Platzhalter für zukünftigen App Store Link -->
+            <!-- <a href="#" target="_blank"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store"></a> -->
         </div>
-    </main>
+    </div>
 
-    <!-- FOOTER: Legal Links -->
+    <!-- MINIMAL FOOTER -->
     <footer>
         <p>&copy; 2026 Five Days Weekend Games. All rights reserved.</p>
-        <a href="#legal-notice">Legal Notice (Impressum)</a> | <a href="#privacy-policy">Privacy Policy</a>
+        <p style="margin-top: 8px;">
+            <a href="#legal-notice">Legal Notice</a>
+            <a href="#privacy-policy">Privacy Policy</a>
+        </p>
     </footer>
 
-    <!-- LEGAL: Impressum (German TMG compliant but in English) -->
-    <div id="legal-notice" class="legal-section">
-        <h3>Legal Notice (Impressum)</h3>
-        <p><strong>Information according to § 5 TMG (Germany):</strong></p>
-        <p>
-            Michael Dziuballe<br>
-            Max-Liebermann-Str. 21<br>
-            74321 Bietigheim-Bissingen<br>
-            Germany
-        </p>
-        <p><strong>Contact:</strong><br>
-            Email: fivedaysweekendgames@gmail.com
-        </p>
-        <p><a href="#">Back to top</a></p>
+    <!-- OVERLAY: Legal Notice (Impressum) -->
+    <div id="legal-notice" class="legal-overlay">
+        <div class="legal-content">
+            <h3>Legal Notice</h3>
+            <p><strong>Information according to § 5 TMG (Germany):</strong></p>
+            <p style="margin-top: 15px;">
+                Michael Dziuballe<br>
+                Max-Liebermann-Str.21<br>
+                74321 Bietigheim-Bissingen<br>
+                Germany
+            </p>
+            <p><strong>Contact:</strong><br>
+                Email: fivedaysweekendgames@gmail.com
+            </p>
+            <a href="#" class="close-btn">Close</a>
+        </div>
     </div>
 
-    <!-- PRIVACY POLICY: GDPR & Google OAuth Compliant -->
-    <div id="privacy-policy" class="legal-section">
-        <h3>Privacy Policy</h3>
-        <h4>1. Privacy at a Glance</h4>
-        <p>This privacy policy informs you about the nature, scope, and purpose of the processing of personal data within our application "Mental Math" and this website. We treat your data confidentially and in accordance with statutory data protection regulations (GDPR).</p>
-        
-        <h4>2. Data Processing via Google Sign-In (OAuth 2.0)</h4>
-        <p>Our application offers the option to authenticate using the Google Sign-In service. When you use this service, the application requests access to basic profile information from your Google Account (specifically your name and email address) via the official Google OAuth 2.0 procedure.</p>
-        <p><strong>How we use this data:</strong> This data is processed <strong>strictly locally</strong> on your device to display your user profile within the app interface (e.g., showing your name in the main menu). We do not transfer, upload, or store this data on any external servers. We do not track, sell, or share your personal data with third parties.</p>
+    <!-- OVERLAY: Privacy Policy -->
+    <div id="privacy-policy" class="legal-overlay">
+        <div class="legal-content">
+            <h3>Privacy Policy</h3>
+            <h4>1. Privacy at a Glance</h4>
+            <p>This privacy policy informs you about the nature, scope, and purpose of the processing of personal data within our application "Mental Math" and this website. We treat your data confidentially and in accordance with statutory data protection regulations (GDPR).</p>
+            
+            <h4>2. Data Processing via Google Sign-In (OAuth 2.0)</h4>
+            <p>Our application offers the option to authenticate using the Google Sign-In service. When you use this service, the application requests access to basic profile information from your Google Account (specifically your name and email address) via the official Google OAuth 2.0 procedure.</p>
+            <p><strong>How we use this data:</strong> This data is processed <strong>strictly locally</strong> on your device to display your user profile within the app interface (e.g., showing your name in the main menu). We do not transfer, upload, or store this data on any external servers. We do not track, sell, or share your personal data with third parties.</p>
 
-        <h4>3. Your Rights</h4>
-        <p>Under the GDPR, you have the right to receive information about your stored personal data free of charge at any time. You also have the right to request the correction or erasure of this data. Since no user data is stored on our infrastructure, you can revoke the app's access at any time within your Google Account security settings.</p>
-        <p><a href="#">Back to top</a></p>
+            <h4>3. Your Rights</h4>
+            <p>Under the GDPR, you have the right to receive information about your stored personal data free of charge at any time. You also have the right to request the correction or erasure of this data. Since no user data is stored on our infrastructure, you can revoke the app's access at any time within your Google Account security settings.</p>
+            <a href="#" class="close-btn">Close</a>
+        </div>
     </div>
-</div>
 
 </body>
 </html>
