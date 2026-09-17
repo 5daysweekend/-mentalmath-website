@@ -217,7 +217,7 @@
             .screenshot-placeholder { width: 160px; height: 330px; }
         }
 
-                /* LIGHTBOX/ZOOM EFFEKT FÜR SCREENSHOTS */
+        /* LIGHTBOX/ZOOM EFFEKT FÜR SCREENSHOTS */
         .screenshot-lightbox {
             display: none;
             position: fixed;
@@ -225,16 +225,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10, 25, 30, 0.95);
-            backdrop-filter: blur(15px);
-            z-index: 200;
+            background: rgba(10, 25, 30, 0.97); /* Einen Tick dunkler für mehr Fokus */
+            backdrop-filter: blur(20px);
+            z-index: 99999 !important; /* Setzt die Ebene ganz nach oben über alles andere */
             justify-content: center;
             align-items: center;
             padding: 20px;
         }
 
+        /* Wenn das Element das Ziel der URL ist, erzwinge die Anzeige als Flexbox */
         .screenshot-lightbox:target {
-            display: flex;
+            display: flex !important;
         }
 
         .screenshot-lightbox img {
