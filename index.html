@@ -31,24 +31,25 @@
             overflow-x: hidden;
         }
 
-        /* Hero Section (Down Dog Style) */
+        /* Hero Section */
         .hero-section {
-            min-height: 80vh;
+            min-height: auto; /* Entfernt die künstliche 80%-Streckung */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 60px 20px;
+            padding: 30px 20px 10px 20px; /* Reduziert das Padding (Abstand oben und unten) */
             max-width: 800px;
             width: 100%;
         }
 
         .app-logo {
-            font-size: 4rem;
+            font-size: 3.5rem; /* Einen Tick kleiner für bessere mobile Balance */
             font-weight: 900;
             letter-spacing: -1px;
-            margin-bottom: 20px;
+            margin-top: 10px; /* Reduziert den Abstand nach ganz oben */
+            margin-bottom: 15px;
             background: linear-gradient(to right, #ffffff, #00d2ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -56,10 +57,10 @@
         }
 
         .tagline {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 300;
             color: var(--text-sub);
-            margin-bottom: 40px;
+            margin-bottom: 25px; /* Reduziert den Abstand vor dem Google Play Button */
             max-width: 600px;
             line-height: 1.4;
             animation: fadeIn 1.2s ease-out;
@@ -70,7 +71,7 @@
             justify-content: center;
             align-items: center;
             gap: 20px;
-            margin-bottom: 50px;
+            margin-bottom: 25px; /* Reduziert den Abstand nach dem Google Play Button massiv */
             animation: fadeIn 1.4s ease-out;
         }
 
