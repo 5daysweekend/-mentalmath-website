@@ -3,13 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mental Math Everyday Speed</title>
+    <base href="https://5daysweekend.com/mentalmath/">
+    <title>Mental Math: Everyday Speed — Your Personal Brain & Math Coach</title>
+    <meta name="description" content="Stop searching for a calculator. Master everyday mental arithmetic with over 500 real-life scenarios across 12 structured levels.">
+    <meta name="theme-color" content="#0f2027">
+
+    <!-- Open Graph / Social Sharing (WhatsApp, Discord, LinkedIn, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://5daysweekend.com/mentalmath/">
+    <meta property="og:title" content="Mental Math: Everyday Speed">
+    <meta property="og:description" content="Stop searching for a calculator. Upgrade your brain with 500+ real-life math scenarios and 12 progressive levels.">
+    <meta property="og:image" content="https://5daysweekend.com/mentalmath/screen1.png">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mental Math: Everyday Speed">
+    <meta name="twitter:description" content="Stop searching for a calculator. Upgrade your brain and unlock your cognitive superpower.">
+    <meta name="twitter:image" content="https://5daysweekend.com/mentalmath/screen1.png">
+
+    <!-- Structured Data (SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Mental Math: Everyday Speed",
+      "operatingSystem": "Android, iOS",
+      "applicationCategory": "EducationalApplication",
+      "description": "Stop searching for a calculator. Upgrade your brain and unlock your cognitive superpower with 500+ practical everyday math scenarios.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
     <style>
         :root {
             --primary-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
             --accent-color: #00d2ff;
+            --accent-glow: rgba(0, 210, 255, 0.3);
             --glass-bg: rgba(255, 255, 255, 0.04);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.09);
             --text-main: #ffffff;
             --text-sub: #b0bec5;
         }
@@ -18,6 +53,10 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -29,77 +68,115 @@
             flex-direction: column;
             align-items: center;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        main {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* Hero Section */
         .hero-section {
-            min-height: auto; /* Entfernt die künstliche 80%-Streckung */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 30px 20px 10px 20px; /* Reduziert das Padding (Abstand oben und unten) */
-            max-width: 800px;
+            padding: 45px 20px 15px 20px;
+            max-width: 820px;
             width: 100%;
         }
 
         .app-logo {
-            font-size: 3.5rem; /* Einen Tick kleiner für bessere mobile Balance */
+            font-size: clamp(2.4rem, 6vw, 3.6rem);
             font-weight: 900;
             letter-spacing: -1px;
-            margin-top: 10px; /* Reduziert den Abstand nach ganz oben */
-            margin-bottom: 15px;
+            line-height: 1.1;
+            margin-bottom: 16px;
             background: linear-gradient(to right, #ffffff, #00d2ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: fadeIn 1s ease-out;
+            animation: fadeIn 0.8s ease-out;
         }
 
         .tagline {
-            font-size: 1.4rem;
+            font-size: clamp(1.15rem, 2.5vw, 1.4rem);
             font-weight: 300;
             color: var(--text-sub);
-            margin-bottom: 25px; /* Reduziert den Abstand vor dem Google Play Button */
+            margin-bottom: 24px;
             max-width: 600px;
-            line-height: 1.4;
-            animation: fadeIn 1.2s ease-out;
+            line-height: 1.45;
+            animation: fadeIn 1s ease-out;
         }
 
+        /* Quick Highlights Pill Bar */
+        .highlights-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 28px;
+            animation: fadeIn 1.1s ease-out;
+        }
+
+        .highlight-pill {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #e0f7fa;
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid rgba(0, 210, 255, 0.25);
+            padding: 6px 14px;
+            border-radius: 999px;
+            letter-spacing: 0.2px;
+        }
+
+        /* Store Badges (Google Play + Apple App Store) */
         .badge-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 25px; /* Reduziert den Abstand nach dem Google Play Button massiv */
-            animation: fadeIn 1.4s ease-out;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 20px;
+            animation: fadeIn 1.2s ease-out;
         }
 
-        .badge-container img {
+        .store-link {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 10px;
+            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s;
+        }
+
+        .store-link img {
             height: 55px;
+            width: auto;
             border-radius: 8px;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+            display: block;
         }
 
-        .badge-container img:hover {
-            transform: scale(1.06);
-            box-shadow: 0 10px 25px rgba(0, 210, 255, 0.3);
+        .store-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px var(--accent-glow);
         }
 
         /* Section für App Screenshots Showcase */
         .screenshot-section {
             width: 100%;
             max-width: 1000px;
-            padding: 40px 20px;
+            padding: 35px 20px;
             text-align: center;
         }
 
         .screenshot-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 24px;
             flex-wrap: wrap;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         .screenshot-placeholder {
@@ -111,37 +188,38 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: rgba(255, 255, 255, 0.2);
-            font-size: 0.9rem;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            transition: transform 0.3s, border-color 0.3s;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
             overflow: hidden;
+            cursor: zoom-in;
+            padding: 0;
         }
 
         .screenshot-placeholder:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
             border-color: var(--accent-color);
+            box-shadow: 0 18px 40px rgba(0, 210, 255, 0.18);
         }
 
         .screenshot-placeholder img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            pointer-events: none; /* Verhindert, dass das Bild den Link-Klick blockiert */
+            display: block;
         }
 
-        /* Emotional Features Grid */
+        /* Emotional Features Grid (Sauberes 2x2 Layout auf Desktop) */
         .features-section {
-            max-width: 900px;
+            max-width: 860px;
             width: 100%;
-            padding: 80px 20px;
+            padding: 60px 20px 40px 20px;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 35px;
         }
 
         .feature-card {
@@ -149,12 +227,13 @@
             border: 1px solid var(--glass-border);
             padding: 30px;
             border-radius: 20px;
-            backdrop-filter: blur(5px);
-            transition: transform 0.3s;
+            backdrop-filter: blur(6px);
+            transition: transform 0.3s, border-color 0.3s;
         }
 
         .feature-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-4px);
+            border-color: rgba(0, 210, 255, 0.35);
         }
 
         .feature-card h3 {
@@ -166,12 +245,12 @@
         .feature-card p {
             color: var(--text-sub);
             font-size: 1rem;
-            line-height: 1.5;
+            line-height: 1.55;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2rem;
+            font-size: clamp(1.6rem, 4vw, 2rem);
             font-weight: 700;
             margin-bottom: 10px;
         }
@@ -179,9 +258,187 @@
         .section-subtitle {
             text-align: center;
             color: var(--text-sub);
-            font-size: 1.1rem;
-            max-width: 500px;
-            margin: 0 auto 30px auto;
+            font-size: 1.08rem;
+            max-width: 520px;
+            margin: 0 auto 20px auto;
+            line-height: 1.45;
+        }
+
+        /* Interactive Live Challenge Section */
+        .challenge-section {
+            width: 100%;
+            max-width: 720px;
+            padding: 25px 20px 35px 20px;
+            margin: 0 auto;
+        }
+
+        .challenge-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 210, 255, 0.25);
+            border-radius: 24px;
+            padding: 32px 28px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .challenge-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .difficulty-tabs {
+            display: inline-flex;
+            background: rgba(0, 0, 0, 0.35);
+            padding: 4px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .diff-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-sub);
+            font-family: inherit;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 7px 16px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .diff-btn.active {
+            background: var(--accent-color);
+            color: #091921;
+            box-shadow: 0 4px 14px var(--accent-glow);
+        }
+
+        .timer-badge {
+            font-variant-numeric: tabular-nums;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid rgba(0, 210, 255, 0.25);
+            padding: 6px 14px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .challenge-question {
+            font-size: clamp(1.1rem, 2.5vw, 1.28rem);
+            line-height: 1.55;
+            color: var(--text-main);
+            font-weight: 500;
+            margin-bottom: 24px;
+            min-height: 3.2em;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .option-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 1.15rem;
+            font-weight: 700;
+            padding: 15px 18px;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            border-color: var(--accent-color);
+            background: rgba(0, 210, 255, 0.09);
+            box-shadow: 0 8px 20px rgba(0, 210, 255, 0.15);
+        }
+
+        .option-btn.correct {
+            background: rgba(0, 230, 118, 0.18);
+            border-color: #00e676;
+            color: #69f0ae;
+            box-shadow: 0 0 20px rgba(0, 230, 118, 0.25);
+        }
+
+        .option-btn.wrong {
+            background: rgba(255, 82, 82, 0.16);
+            border-color: #ff5252;
+            color: #ff8a80;
+        }
+
+        .option-btn:disabled {
+            cursor: default;
+        }
+
+        .challenge-feedback {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .challenge-feedback.visible {
+            display: flex;
+        }
+
+        .feedback-text {
+            font-size: 0.98rem;
+            color: #e0f7fa;
+            line-height: 1.4;
+        }
+
+        .next-challenge-btn {
+            background: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            font-family: inherit;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .next-challenge-btn:hover {
+            background: var(--accent-color);
+            color: #091921;
+        }
+
+        /* Bottom Call-to-Action Section */
+        .bottom-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px 20px 10px 20px;
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .bottom-cta h2 {
+            font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+            margin-bottom: 18px;
         }
 
         /* Footer */
@@ -189,15 +446,15 @@
             width: 100%;
             text-align: center;
             padding: 40px 20px;
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.3);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(0, 0, 0, 0.15);
-            margin-top: 60px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.55);
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            background: rgba(0, 0, 0, 0.18);
+            margin-top: 50px;
         }
 
         footer a {
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.75);
             text-decoration: none;
             margin: 0 12px;
             transition: color 0.2s;
@@ -207,145 +464,221 @@
             color: var(--accent-color);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 600px) {
-            .app-logo { font-size: 3rem; }
-            .tagline { font-size: 1.25rem; }
-            .screenshot-placeholder { width: 160px; height: 330px; }
-        }
-
-        /* LIGHTBOX/ZOOM EFFEKT FÜR SCREENSHOTS */
+        /* Moderne Lightbox (ohne Hochspringen beim Schließen) */
         .screenshot-lightbox {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10, 25, 30, 0.97); /* Einen Tick dunkler für mehr Fokus */
-            backdrop-filter: blur(20px);
-            z-index: 99999 !important; /* Setzt die Ebene ganz nach oben über alles andere */
+            background: rgba(10, 25, 30, 0.95);
+            backdrop-filter: blur(18px);
+            z-index: 99999;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            cursor: zoom-out;
         }
 
-        /* Wenn das Element das Ziel der URL ist, erzwinge die Anzeige als Flexbox */
-        .screenshot-lightbox:target {
-            display: flex !important;
+        .screenshot-lightbox.active {
+            display: flex;
         }
 
         .screenshot-lightbox img {
-            max-width: 90%;
-            max-height: 85vh;
+            max-width: 92%;
+            max-height: 86vh;
             border-radius: 16px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-            border: 1px solid rgba(255,255,255,0.1);
-            animation: zoomIn 0.3s ease-out;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            animation: zoomIn 0.25s ease-out;
+            cursor: default;
         }
 
         .close-lightbox {
             position: absolute;
             top: 20px;
-            right: 30px;
+            right: 28px;
+            background: none;
+            border: none;
             color: #ffffff;
-            font-size: 2.5rem;
-            text-decoration: none;
+            font-size: 2.6rem;
+            line-height: 1;
+            cursor: pointer;
             font-weight: 300;
-            transition: color 0.2s;
+            transition: color 0.2s, transform 0.2s;
         }
 
         .close-lightbox:hover {
             color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes zoomIn {
             from { transform: scale(0.95); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
+
+        /* Mobile Optimierungen */
+        @media (max-width: 680px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Auf Smartphones: Nativer horizontaler Swipe für die 3 Screenshots */
+            .screenshot-container {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                padding: 10px 15px 25px 15px;
+                margin-left: -20px;
+                margin-right: -20px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .screenshot-container::-webkit-scrollbar {
+                display: none;
+            }
+
+            .screenshot-placeholder {
+                flex: 0 0 200px;
+                height: 410px;
+                scroll-snap-align: center;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- HERO SECTION -->
-    <div class="hero-section">
-        <h1 class="app-logo">Mental Math Everyday Speed</h1>
-        <p class="tagline">Stop searching for a calculator. Upgrade your brain and unlock your cognitive superpower.</p>
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero-section">
+            <h1 class="app-logo">Mental Math Everyday Speed</h1>
+            <p class="tagline">Stop searching for a calculator. Upgrade your brain and unlock your cognitive superpower.</p>
 
-        <!-- Google Play Badge -->
-<div class="badge-container">
-    <a href="https://play.google.com/store/apps/details?id=com.fivedaysweekend.math" target="_blank">
-        <img src="GetItOnGooglePlay_Badge_Web_color_English.png" alt="Get it on Google Play">
-    </a>
-</div>
-    </div>
-
-    <!-- SCREENSHOTS SHOWCASE -->
-    <div class="screenshot-section">
-        <h2 class="section-title">Clean Design. Focused Training.</h2>
-        <p class="section-subtitle">Take a look inside your new personal mental coach. Click to enlarge.</p>
-        
-        <div class="screenshot-container">
-            <!-- Screenshot 1 -->
-            <a href="#zoom-screen1" class="screenshot-placeholder">
-                <img src="screen1.png" alt="Everyday Training">
-            </a>
-            
-            <!-- Screenshot 2 -->
-            <a href="#zoom-screen2" class="screenshot-placeholder">
-                <img src="screen2.png" alt="Text Task">
-            </a>
-            
-            <!-- Screenshot 3 -->
-            <a href="#zoom-screen3" class="screenshot-placeholder">
-                <img src="screen3.png" alt="Math Task">
-            </a>
-        </div>
-    </div>
-
-    <!-- LIGHTBOX OVERLAYS FÜR DIE VERGRÖSSERUNG -->
-    <div id="zoom-screen1" class="screenshot-lightbox">
-        <a href="#" class="close-lightbox">&times;</a>
-        <img src="screen1.png" alt="Everyday Training Large">
-    </div>
-
-    <div id="zoom-screen2" class="screenshot-lightbox">
-        <a href="#" class="close-lightbox">&times;</a>
-        <img src="screen2.png" alt="Text Task Large">
-    </div>
-
-    <div id="zoom-screen3" class="screenshot-lightbox">
-        <a href="#" class="close-lightbox">&times;</a>
-        <img src="screen3.png" alt="Math Task Large">
-    </div>
-
-    <!-- FEATURE GRID -->
-    <div class="features-section">
-        <h2 class="section-title">Why Mental Math?</h2>
-        <p class="section-subtitle">Mental calculation is more than just math — it is a powerful advantage in everyday life.</p>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>Real-World Scenarios</h3>
-                <p>Over 500 practical text problems straight from daily life. No dry numbers, but real exercises focusing on finances, time management, and logic.</p>
+            <div class="highlights-bar">
+                <span class="highlight-pill">500+ Real-Life Tasks</span>
+                <span class="highlight-pill">12 Structured Levels</span>
+                <span class="highlight-pill">Everyday Speed Training</span>
             </div>
-            <div class="feature-card">
-                <h3>Step-by-Step Mastery</h3>
-                <p>12 logically structured levels guide you from the absolute basics to the elite class of mental arithmetic, boosting your neural efficiency day by day.</p>
+
+            <!-- Store Badges -->
+            <div class="badge-container">
+                <!-- Google Play Badge -->
+                <a href="https://play.google.com/store/apps/details?id=com.fivedaysweekend.math" target="_blank" rel="noopener noreferrer" class="store-link">
+                    <img src="GetItOnGooglePlay_Badge_Web_color_English.png" alt="Get it on Google Play" width="185" height="55">
+                </a>
+
+                <!--
+                APPLE APP STORE BADGE (Für später vorbereitet - einfach Kommentarzeichen entfernen, sobald live):
+                <a href="DEIN_APPLE_STORE_LINK" target="_blank" rel="noopener noreferrer" class="store-link">
+                    <img src="Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" width="165" height="55">
+                </a>
+                -->
             </div>
-            <div class="feature-card">
-                <h3>Maximum Speed</h3>
-                <p>Minimize your reaction time when dealing with numbers. Train your brain to recognize patterns instantly instead of manually counting digits.</p>
+        </section>
+
+        <!-- INTERACTIVE LIVE CHALLENGE -->
+        <section class="challenge-section" aria-label="Interactive Math Challenge">
+            <h2 class="section-title">Test Your Everyday Speed</h2>
+            <p class="section-subtitle">Can you solve this without reaching for your calculator?</p>
+
+            <div class="challenge-card">
+                <div class="challenge-top">
+                    <div class="difficulty-tabs" role="tablist">
+                        <button type="button" class="diff-btn active" data-level="easy">Easy</button>
+                        <button type="button" class="diff-btn" data-level="hard">Hard</button>
+                    </div>
+                    <div class="timer-badge" aria-live="off">
+                        <span>⏱</span>
+                        <span id="challenge-timer">0.0s</span>
+                    </div>
+                </div>
+
+                <p class="challenge-question" id="challenge-question"></p>
+
+                <div class="options-grid" id="challenge-options"></div>
+
+                <div class="challenge-feedback" id="challenge-feedback">
+                    <span class="feedback-text" id="feedback-text"></span>
+                    <button type="button" class="next-challenge-btn" id="switch-challenge-btn">Try the Hard Challenge &rarr;</button>
+                </div>
             </div>
-            <div class="feature-card">
-                <h3>Confidence & Status</h3>
-                <p>Experience the power of mastering numbers. Impress colleagues, friends, and yourself with your new mental agility and confidence.</p>
+        </section>
+
+        <!-- SCREENSHOTS SHOWCASE -->
+        <section class="screenshot-section" id="screenshots">
+            <h2 class="section-title">Clean Design. Focused Training.</h2>
+            <p class="section-subtitle">Take a look inside your new personal mental coach. Click to enlarge.</p>
+
+            <div class="screenshot-container">
+                <button type="button" class="screenshot-placeholder" data-full="screen1.png" data-alt="Everyday Training Large">
+                    <img src="screen1.png" alt="Everyday Training" width="220" height="450" loading="lazy">
+                </button>
+
+                <button type="button" class="screenshot-placeholder" data-full="screen2.png" data-alt="Text Task Large">
+                    <img src="screen2.png" alt="Text Task" width="220" height="450" loading="lazy">
+                </button>
+
+                <button type="button" class="screenshot-placeholder" data-full="screen3.png" data-alt="Math Task Large">
+                    <img src="screen3.png" alt="Math Task" width="220" height="450" loading="lazy">
+                </button>
             </div>
-        </div>
+        </section>
+
+        <!-- FEATURE GRID -->
+        <section class="features-section">
+            <h2 class="section-title">Why Mental Math?</h2>
+            <p class="section-subtitle">Mental calculation is more than just math — it is a powerful advantage in everyday life.</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Real-World Scenarios</h3>
+                    <p>Over 500 practical text problems straight from daily life. No dry numbers, but real exercises focusing on finances, time management, and logic.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Step-by-Step Mastery</h3>
+                    <p>12 logically structured levels guide you from the absolute basics to the elite class of mental arithmetic, boosting your neural efficiency day by day.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Maximum Speed</h3>
+                    <p>Minimize your reaction time when dealing with numbers. Train your brain to recognize patterns instantly instead of manually counting digits.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Confidence &amp; Status</h3>
+                    <p>Experience the power of mastering numbers. Impress colleagues, friends, and yourself with your new mental agility and confidence.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ZWEITER CALL-TO-ACTION AM ENDE -->
+        <section class="bottom-cta">
+            <h2>Ready to upgrade your mental speed?</h2>
+            <div class="badge-container">
+                <a href="https://play.google.com/store/apps/details?id=com.fivedaysweekend.math" target="_blank" rel="noopener noreferrer" class="store-link">
+                    <img src="GetItOnGooglePlay_Badge_Web_color_English.png" alt="Get it on Google Play" width="185" height="55" loading="lazy">
+                </a>
+
+                <!--
+                APPLE APP STORE BADGE (Für später vorbereitet):
+                <a href="DEIN_APPLE_STORE_LINK" target="_blank" rel="noopener noreferrer" class="store-link">
+                    <img src="Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" width="165" height="55" loading="lazy">
+                </a>
+                -->
+            </div>
+        </section>
+    </main>
+
+    <!-- LIGHTBOX MODAL (Ein zentrales Overlay für alle Screenshots) -->
+    <div id="lightbox" class="screenshot-lightbox" role="dialog" aria-modal="true" aria-label="Screenshot preview">
+        <button type="button" class="close-lightbox" aria-label="Close preview">&times;</button>
+        <img id="lightbox-img" src="" alt="">
     </div>
 
     <!-- FOOTER -->
@@ -358,5 +691,161 @@
         </p>
     </footer>
 
+    <script>
+        (function () {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeBtn = lightbox.querySelector('.close-lightbox');
+
+            document.querySelectorAll('.screenshot-placeholder').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    lightboxImg.src = btn.getAttribute('data-full');
+                    lightboxImg.alt = btn.getAttribute('data-alt') || '';
+                    lightbox.classList.add('active');
+                });
+            });
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                lightboxImg.src = '';
+            }
+
+            closeBtn.addEventListener('click', closeLightbox);
+
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
+            });
+
+            // Interaktive Beispiel-Rechenaufgaben (Easy & Hard)
+            const challenges = {
+                easy: {
+                    task: "Social Life: You share a $124 taxi fare with 3 friends (4 people total). How much does everyone pay?",
+                    solution: "31.00",
+                    distractors: ["41.30", "32.00", "28.50"],
+                    prefix: "$",
+                    suffix: "",
+                    hint: "120 ÷ 4 = 30, plus 4 ÷ 4 = 1 → $31.00 each!"
+                },
+                hard: {
+                    task: "A train travels at 90 mph toward a destroyed bridge. After 30 minutes, it slows down to 50 mph and continues for another 20 minutes. What total distance does it travel?",
+                    solution: "61.7",
+                    distractors: ["55", "65", "70"],
+                    prefix: "",
+                    suffix: " miles",
+                    hint: "45 miles (30 min @ 90 mph) + 16.7 miles (20 min @ 50 mph) ≈ 61.7 miles!"
+                }
+            };
+
+            const questionEl = document.getElementById('challenge-question');
+            const optionsEl = document.getElementById('challenge-options');
+            const timerEl = document.getElementById('challenge-timer');
+            const feedbackBox = document.getElementById('challenge-feedback');
+            const feedbackText = document.getElementById('feedback-text');
+            const switchBtn = document.getElementById('switch-challenge-btn');
+            const diffBtns = document.querySelectorAll('.diff-btn');
+
+            let currentLevel = 'easy';
+            let startTime = 0;
+            let timerInterval = null;
+
+            function shuffle(arr) {
+                const copy = arr.slice();
+                for (let i = copy.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    const temp = copy[i];
+                    copy[i] = copy[j];
+                    copy[j] = temp;
+                }
+                return copy;
+            }
+
+            function startTimer() {
+                clearInterval(timerInterval);
+                startTime = performance.now();
+                timerEl.textContent = '0.0s';
+                timerInterval = setInterval(function () {
+                    const elapsed = ((performance.now() - startTime) / 1000).toFixed(1);
+                    timerEl.textContent = elapsed + 's';
+                }, 100);
+            }
+
+            function loadChallenge(level) {
+                currentLevel = level;
+                const data = challenges[level];
+
+                diffBtns.forEach(function (b) {
+                    b.classList.toggle('active', b.getAttribute('data-level') === level);
+                });
+
+                questionEl.textContent = data.task;
+                feedbackBox.classList.remove('visible');
+
+                const allAnswers = shuffle([data.solution].concat(data.distractors));
+                optionsEl.innerHTML = '';
+
+                allAnswers.forEach(function (ans) {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'option-btn';
+                    btn.textContent = data.prefix + ans + data.suffix;
+                    btn.setAttribute('data-value', ans);
+
+                    btn.addEventListener('click', function () {
+                        handleAnswer(btn, ans, data);
+                    });
+
+                    optionsEl.appendChild(btn);
+                });
+
+                switchBtn.textContent = level === 'easy'
+                    ? 'Try the Hard Challenge \u2192'
+                    : 'Back to Easy Challenge \u2192';
+
+                startTimer();
+            }
+
+            function handleAnswer(clickedBtn, chosen, data) {
+                clearInterval(timerInterval);
+                const elapsed = ((performance.now() - startTime) / 1000).toFixed(1);
+                const allBtns = optionsEl.querySelectorAll('.option-btn');
+
+                allBtns.forEach(function (b) {
+                    b.disabled = true;
+                    if (b.getAttribute('data-value') === data.solution) {
+                        b.classList.add('correct');
+                    }
+                });
+
+                if (chosen === data.solution) {
+                    feedbackText.innerHTML = '<strong>Spot on in ' + elapsed + 's!</strong> ' + data.hint;
+                } else {
+                    clickedBtn.classList.add('wrong');
+                    feedbackText.innerHTML = '<strong>Not quite!</strong> ' + data.hint;
+                }
+
+                feedbackBox.classList.add('visible');
+            }
+
+            diffBtns.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    loadChallenge(btn.getAttribute('data-level'));
+                });
+            });
+
+            switchBtn.addEventListener('click', function () {
+                loadChallenge(currentLevel === 'easy' ? 'hard' : 'easy');
+            });
+
+            loadChallenge('easy');
+        })();
+    </script>
 </body>
 </html>
