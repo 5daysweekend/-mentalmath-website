@@ -279,8 +279,64 @@
             padding: 32px 28px;
             box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
+            min-height: 310px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
+        .quiz-view {
+            width: 100%;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        /* Intro Screen */
+        .quiz-intro-content {
+            text-align: center;
+            padding: 10px 5px;
+        }
+
+        .quiz-intro-icon {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+
+        .quiz-intro-title {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .quiz-intro-desc {
+            color: var(--text-sub);
+            font-size: 1.02rem;
+            max-width: 480px;
+            margin: 0 auto 24px auto;
+            line-height: 1.5;
+        }
+
+        .start-quiz-btn {
+            background: linear-gradient(135deg, #00d2ff, #00a0cc);
+            color: #061923;
+            font-family: inherit;
+            font-size: 1.05rem;
+            font-weight: 700;
+            padding: 14px 34px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 24px var(--accent-glow);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .start-quiz-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0, 210, 255, 0.45);
+        }
+
+        /* Quiz Active Screen */
         .challenge-top {
             display: flex;
             justify-content: space-between;
@@ -290,31 +346,16 @@
             margin-bottom: 22px;
         }
 
-        .difficulty-tabs {
-            display: inline-flex;
-            background: rgba(0, 0, 0, 0.35);
-            padding: 4px;
+        .step-pill {
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--accent-color);
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid rgba(0, 210, 255, 0.25);
+            padding: 6px 14px;
             border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .diff-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-sub);
-            font-family: inherit;
-            font-size: 0.88rem;
-            font-weight: 600;
-            padding: 7px 16px;
-            border-radius: 999px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-        }
-
-        .diff-btn.active {
-            background: var(--accent-color);
-            color: #091921;
-            box-shadow: 0 4px 14px var(--accent-glow);
         }
 
         .timer-badge {
@@ -403,24 +444,91 @@
             font-size: 0.98rem;
             color: #e0f7fa;
             line-height: 1.4;
+            max-width: 480px;
         }
 
         .next-challenge-btn {
-            background: transparent;
+            background: var(--accent-color);
             border: 1px solid var(--accent-color);
-            color: var(--accent-color);
+            color: #071a24;
             font-family: inherit;
-            font-size: 0.88rem;
-            font-weight: 600;
-            padding: 8px 16px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            padding: 9px 18px;
             border-radius: 999px;
             cursor: pointer;
-            transition: background 0.2s, color 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 14px var(--accent-glow);
         }
 
         .next-challenge-btn:hover {
-            background: var(--accent-color);
-            color: #091921;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(0, 210, 255, 0.45);
+        }
+
+        /* Result Screen */
+        .quiz-result-content {
+            text-align: center;
+            padding: 8px 5px;
+        }
+
+        .quiz-result-badge {
+            font-size: 3rem;
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+
+        .quiz-result-stats {
+            display: inline-block;
+            font-size: 0.88rem;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            color: var(--accent-color);
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid rgba(0, 210, 255, 0.25);
+            padding: 5px 14px;
+            border-radius: 999px;
+            margin-bottom: 16px;
+        }
+
+        .quiz-result-title {
+            font-size: clamp(1.25rem, 3vw, 1.55rem);
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        .quiz-result-desc {
+            color: var(--text-sub);
+            font-size: 1rem;
+            line-height: 1.55;
+            max-width: 530px;
+            margin: 0 auto 24px auto;
+        }
+
+        .quiz-result-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .retake-quiz-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-sub);
+            font-family: inherit;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .retake-quiz-btn:hover {
+            border-color: var(--accent-color);
+            color: #ffffff;
         }
 
         /* Bottom Call-to-Action Section */
@@ -587,27 +695,53 @@
         <!-- INTERACTIVE LIVE CHALLENGE -->
         <section class="challenge-section" aria-label="Interactive Math Challenge">
             <h2 class="section-title">Test Your Everyday Speed</h2>
-            <p class="section-subtitle">Can you solve this without reaching for your calculator?</p>
+            <p class="section-subtitle">Can you solve these without reaching for a calculator?</p>
 
             <div class="challenge-card">
-                <div class="challenge-top">
-                    <div class="difficulty-tabs" role="tablist">
-                        <button type="button" class="diff-btn active" data-level="easy">Easy</button>
-                        <button type="button" class="diff-btn" data-level="hard">Hard</button>
-                    </div>
-                    <div class="timer-badge" aria-live="off">
-                        <span>⏱</span>
-                        <span id="challenge-timer">0.0s</span>
+                <!-- VIEW 1: INTRO -->
+                <div id="quiz-intro" class="quiz-view">
+                    <div class="quiz-intro-content">
+                        <div class="quiz-intro-icon">⚡</div>
+                        <h3 class="quiz-intro-title">2-Question Mental Speed Check</h3>
+                        <p class="quiz-intro-desc">First an easy warm-up, then a tough challenge. Can you calculate faster than the clock?</p>
+                        <button type="button" class="start-quiz-btn" id="start-quiz-btn">Start Speed Test</button>
                     </div>
                 </div>
 
-                <p class="challenge-question" id="challenge-question"></p>
+                <!-- VIEW 2: QUIZ ACTIVE -->
+                <div id="quiz-play" class="quiz-view" style="display: none;">
+                    <div class="challenge-top">
+                        <span class="step-pill" id="quiz-step">Challenge 1 / 2 (Easy)</span>
+                        <div class="timer-badge" aria-live="off">
+                            <span>⏱</span>
+                            <span id="challenge-timer">0.0s</span>
+                        </div>
+                    </div>
 
-                <div class="options-grid" id="challenge-options"></div>
+                    <p class="challenge-question" id="challenge-question"></p>
 
-                <div class="challenge-feedback" id="challenge-feedback">
-                    <span class="feedback-text" id="feedback-text"></span>
-                    <button type="button" class="next-challenge-btn" id="switch-challenge-btn">Try the Hard Challenge &rarr;</button>
+                    <div class="options-grid" id="challenge-options"></div>
+
+                    <div class="challenge-feedback" id="challenge-feedback">
+                        <span class="feedback-text" id="feedback-text"></span>
+                        <button type="button" class="next-challenge-btn" id="next-quiz-btn">Next: Hard Challenge &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- VIEW 3: RESULTS -->
+                <div id="quiz-result" class="quiz-view" style="display: none;">
+                    <div class="quiz-result-content">
+                        <div class="quiz-result-badge" id="result-badge-icon">🎯</div>
+                        <div class="quiz-result-stats" id="result-stats">2 of 2 Correct • 11.8s</div>
+                        <h3 class="quiz-result-title" id="result-title"></h3>
+                        <p class="quiz-result-desc" id="result-desc"></p>
+                        <div class="quiz-result-actions">
+                            <a href="https://play.google.com/store/apps/details?id=com.fivedaysweekend.math" target="_blank" rel="noopener noreferrer" class="store-link">
+                                <img src="GetItOnGooglePlay_Badge_Web_color_English.png" alt="Get it on Google Play" width="185" height="55" loading="lazy">
+                            </a>
+                            <button type="button" class="retake-quiz-btn" id="retake-quiz-btn">Try Again &#8635;</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -724,9 +858,10 @@
                 }
             });
 
-            // Interaktive Beispiel-Rechenaufgaben (Easy & Hard)
-            const challenges = {
-                easy: {
+            // 2-Step Interactive Challenge Flow
+            const quizList = [
+                {
+                    stepLabel: "Challenge 1 / 2 (Easy)",
                     task: "Social Life: You share a $124 taxi fare with 3 friends (4 people total). How much does everyone pay?",
                     solution: "31.00",
                     distractors: ["41.30", "32.00", "28.50"],
@@ -734,26 +869,41 @@
                     suffix: "",
                     hint: "120 ÷ 4 = 30, plus 4 ÷ 4 = 1 → $31.00 each!"
                 },
-                hard: {
+                {
+                    stepLabel: "Challenge 2 / 2 (Hard)",
                     task: "A train travels at 90 mph toward a destroyed bridge. After 30 minutes, it slows down to 50 mph and continues for another 20 minutes. What total distance does it travel?",
                     solution: "61.7",
-                    distractors: ["55", "65", "70"],
+                    distractors: ["55.3", "64.5", "68.2"],
                     prefix: "",
                     suffix: " miles",
                     hint: "45 miles (30 min @ 90 mph) + 16.7 miles (20 min @ 50 mph) ≈ 61.7 miles!"
                 }
-            };
+            ];
 
+            const viewIntro = document.getElementById('quiz-intro');
+            const viewPlay = document.getElementById('quiz-play');
+            const viewResult = document.getElementById('quiz-result');
+
+            const startQuizBtn = document.getElementById('start-quiz-btn');
+            const retakeQuizBtn = document.getElementById('retake-quiz-btn');
+            const nextQuizBtn = document.getElementById('next-quiz-btn');
+
+            const stepEl = document.getElementById('quiz-step');
+            const timerEl = document.getElementById('challenge-timer');
             const questionEl = document.getElementById('challenge-question');
             const optionsEl = document.getElementById('challenge-options');
-            const timerEl = document.getElementById('challenge-timer');
             const feedbackBox = document.getElementById('challenge-feedback');
             const feedbackText = document.getElementById('feedback-text');
-            const switchBtn = document.getElementById('switch-challenge-btn');
-            const diffBtns = document.querySelectorAll('.diff-btn');
 
-            let currentLevel = 'easy';
-            let startTime = 0;
+            const resultBadge = document.getElementById('result-badge-icon');
+            const resultStats = document.getElementById('result-stats');
+            const resultTitle = document.getElementById('result-title');
+            const resultDesc = document.getElementById('result-desc');
+
+            let currentIndex = 0;
+            let score = 0;
+            let totalTime = 0;
+            let questionStartTime = 0;
             let timerInterval = null;
 
             function shuffle(arr) {
@@ -767,26 +917,40 @@
                 return copy;
             }
 
+            function switchView(view) {
+                viewIntro.style.display = view === 'intro' ? 'block' : 'none';
+                viewPlay.style.display = view === 'play' ? 'block' : 'none';
+                viewResult.style.display = view === 'result' ? 'block' : 'none';
+            }
+
             function startTimer() {
                 clearInterval(timerInterval);
-                startTime = performance.now();
+                questionStartTime = performance.now();
                 timerEl.textContent = '0.0s';
                 timerInterval = setInterval(function () {
-                    const elapsed = ((performance.now() - startTime) / 1000).toFixed(1);
+                    const elapsed = ((performance.now() - questionStartTime) / 1000).toFixed(1);
                     timerEl.textContent = elapsed + 's';
                 }, 100);
             }
 
-            function loadChallenge(level) {
-                currentLevel = level;
-                const data = challenges[level];
+            function stopTimer() {
+                clearInterval(timerInterval);
+                const elapsedSeconds = (performance.now() - questionStartTime) / 1000;
+                totalTime += elapsedSeconds;
+                return elapsedSeconds.toFixed(1);
+            }
 
-                diffBtns.forEach(function (b) {
-                    b.classList.toggle('active', b.getAttribute('data-level') === level);
-                });
+            function showQuestion(index) {
+                currentIndex = index;
+                const data = quizList[index];
 
+                stepEl.textContent = data.stepLabel;
                 questionEl.textContent = data.task;
                 feedbackBox.classList.remove('visible');
+
+                nextQuizBtn.textContent = index < quizList.length - 1
+                    ? 'Next: Hard Challenge \u2192'
+                    : 'See Your Results \u2192';
 
                 const allAnswers = shuffle([data.solution].concat(data.distractors));
                 optionsEl.innerHTML = '';
@@ -805,16 +969,11 @@
                     optionsEl.appendChild(btn);
                 });
 
-                switchBtn.textContent = level === 'easy'
-                    ? 'Try the Hard Challenge \u2192'
-                    : 'Back to Easy Challenge \u2192';
-
                 startTimer();
             }
 
             function handleAnswer(clickedBtn, chosen, data) {
-                clearInterval(timerInterval);
-                const elapsed = ((performance.now() - startTime) / 1000).toFixed(1);
+                const elapsedStr = stopTimer();
                 const allBtns = optionsEl.querySelectorAll('.option-btn');
 
                 allBtns.forEach(function (b) {
@@ -825,7 +984,8 @@
                 });
 
                 if (chosen === data.solution) {
-                    feedbackText.innerHTML = '<strong>Spot on in ' + elapsed + 's!</strong> ' + data.hint;
+                    score++;
+                    feedbackText.innerHTML = '<strong>Spot on in ' + elapsedStr + 's!</strong> ' + data.hint;
                 } else {
                     clickedBtn.classList.add('wrong');
                     feedbackText.innerHTML = '<strong>Not quite!</strong> ' + data.hint;
@@ -834,17 +994,47 @@
                 feedbackBox.classList.add('visible');
             }
 
-            diffBtns.forEach(function (btn) {
-                btn.addEventListener('click', function () {
-                    loadChallenge(btn.getAttribute('data-level'));
-                });
+            function showResults() {
+                clearInterval(timerInterval);
+                switchView('result');
+
+                const totalSecFormatted = totalTime.toFixed(1);
+                resultStats.textContent = 'Score: ' + score + ' / ' + quizList.length + ' \u2022 Total Time: ' + totalSecFormatted + 's';
+
+                if (score === quizList.length) {
+                    // Beide richtig (Erfolgreich)
+                    resultBadge.textContent = '\uD83C\uDFC6'; // 🏆
+                    resultTitle.textContent = 'Brilliant Speed & Accuracy!';
+                    resultDesc.textContent = 'Impressive work! You have strong numerical instincts. But this is just the beginning — inside the Mental Math app, over 500 progressive real-world challenges across 12 levels are waiting to push your reaction time and cognitive efficiency even further.';
+                } else {
+                    // Mindestens 1 Fehler (Gescheitert / Ausbaufähig)
+                    resultBadge.textContent = '\uD83D\uDCA1'; // 💡
+                    resultTitle.textContent = 'Tricky Numbers? Don\u2019t Worry!';
+                    resultDesc.textContent = 'Fast mental math is not raw talent — it\u2019s pure technique and pattern recognition! With the step-by-step training in the Mental Math app, you\u2019ll master everyday shortcuts to crack even complex calculations effortlessly in seconds.';
+                }
+            }
+
+            startQuizBtn.addEventListener('click', function () {
+                score = 0;
+                totalTime = 0;
+                switchView('play');
+                showQuestion(0);
             });
 
-            switchBtn.addEventListener('click', function () {
-                loadChallenge(currentLevel === 'easy' ? 'hard' : 'easy');
+            nextQuizBtn.addEventListener('click', function () {
+                if (currentIndex < quizList.length - 1) {
+                    showQuestion(currentIndex + 1);
+                } else {
+                    showResults();
+                }
             });
 
-            loadChallenge('easy');
+            retakeQuizBtn.addEventListener('click', function () {
+                score = 0;
+                totalTime = 0;
+                switchView('play');
+                showQuestion(0);
+            });
         })();
     </script>
 </body>
