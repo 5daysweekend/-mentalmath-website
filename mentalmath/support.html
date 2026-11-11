@@ -6,7 +6,6 @@
     <title>Support — Mental Math: Everyday Speed</title>
     <meta name="description" content="Support and FAQ for Mental Math: Everyday Speed by Five Days Weekend Games. Get help, report bugs, or submit feedback.">
     <meta name="theme-color" content="#0f2027">
-
     <style>
         :root {
             --primary-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
@@ -17,13 +16,11 @@
             --text-main: #ffffff;
             --text-sub: #b0bec5;
         }
-
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background: var(--primary-gradient);
@@ -35,7 +32,6 @@
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
-
         main {
             width: 100%;
             max-width: 800px;
@@ -44,13 +40,11 @@
             flex-direction: column;
             align-items: center;
         }
-
         /* Back Link */
         .back-nav {
             width: 100%;
             margin-bottom: 25px;
         }
-
         .back-nav a {
             color: var(--accent-color);
             text-decoration: none;
@@ -61,295 +55,15 @@
             gap: 6px;
             transition: transform 0.2s;
         }
-
         .back-nav a:hover {
             transform: translateX(-3px);
         }
-
         /* Header */
         .page-header {
             text-align: center;
             margin-bottom: 40px;
         }
-
         .badge {
             display: inline-block;
             font-size: 0.8rem;
             font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--accent-color);
-            background: rgba(0, 210, 255, 0.1);
-            border: 1px solid rgba(0, 210, 255, 0.25);
-            padding: 5px 14px;
-            border-radius: 999px;
-            margin-bottom: 14px;
-        }
-
-        h1 {
-            font-size: clamp(2rem, 5vw, 2.7rem);
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 12px;
-            background: linear-gradient(to right, #ffffff, #00d2ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .subheading {
-            font-size: 1.1rem;
-            color: var(--text-sub);
-            max-width: 580px;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
-
-        /* Contact Card */
-        .contact-card {
-            width: 100%;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 35px 30px;
-            margin-bottom: 35px;
-            text-align: center;
-            backdrop-filter: blur(8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-        }
-
-        .contact-card h2 {
-            font-size: 1.45rem;
-            margin-bottom: 12px;
-            color: #ffffff;
-        }
-
-        .contact-card p {
-            color: var(--text-sub);
-            font-size: 1rem;
-            line-height: 1.55;
-            max-width: 540px;
-            margin: 0 auto 24px auto;
-        }
-
-        .email-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: linear-gradient(135deg, #00d2ff, #00a0cc);
-            color: #051821;
-            font-weight: 700;
-            font-size: 1.05rem;
-            padding: 14px 30px;
-            border-radius: 999px;
-            text-decoration: none;
-            box-shadow: 0 8px 24px var(--accent-glow);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .email-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(0, 210, 255, 0.45);
-        }
-
-        .response-hint {
-            display: block;
-            margin-top: 14px;
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            width: 100%;
-            margin-top: 15px;
-        }
-
-        .faq-section h2 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .faq-item {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            margin-bottom: 14px;
-            overflow: hidden;
-            transition: border-color 0.2s;
-        }
-
-        .faq-item:hover {
-            border-color: rgba(0, 210, 255, 0.3);
-        }
-
-        .faq-question {
-            width: 100%;
-            text-align: left;
-            padding: 20px 24px;
-            background: transparent;
-            border: none;
-            color: #ffffff;
-            font-family: inherit;
-            font-size: 1.05rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .faq-icon {
-            font-size: 1.3rem;
-            color: var(--accent-color);
-            transition: transform 0.25s ease;
-            line-height: 1;
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease;
-            padding: 0 24px;
-            color: var(--text-sub);
-            font-size: 0.98rem;
-            line-height: 1.6;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 250px;
-            padding-bottom: 20px;
-        }
-
-        /* Footer */
-        footer {
-            width: 100%;
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.55);
-            border-top: 1px solid rgba(255, 255, 255, 0.07);
-            background: rgba(0, 0, 0, 0.18);
-            margin-top: 50px;
-        }
-
-        footer a {
-            color: rgba(255, 255, 255, 0.75);
-            text-decoration: none;
-            margin: 0 12px;
-            transition: color 0.2s;
-        }
-
-        footer a:hover {
-            color: var(--accent-color);
-        }
-    </style>
-</head>
-<body>
-
-    <main>
-        <div class="back-nav">
-            <a href="index.html">&larr; Back to Mental Math</a>
-        </div>
-
-        <header class="page-header">
-            <span class="badge">App Support</span>
-            <h1>How Can We Help?</h1>
-            <p class="subheading">Have questions, feedback, or running into technical issues with <strong>Mental Math: Everyday Speed</strong>? We're here to assist you.</p>
-        </header>
-
-        <!-- Direct Contact Card -->
-        <section class="contact-card">
-            <h2>Contact Developer Support</h2>
-            <p>If you encounter a bug, have suggestions for new scenarios, or need help with the app, send us an email directly:</p>
-            
-            <!-- Hier kannst du support@5daysweekend.com anpassen -->
-            <a href="mailto:support@5daysweekend.com?subject=Mental%20Math%20Support%20Request" class="email-btn">
-                <span>&#9993;</span> support@5daysweekend.com
-            </a>
-            
-            <span class="response-hint">Please include your device model and iOS version if reporting an issue.</span>
-        </section>
-
-        <!-- Frequently Asked Questions -->
-        <section class="faq-section" aria-label="Frequently Asked Questions">
-            <h2>Frequently Asked Questions</h2>
-
-            <div class="faq-item">
-                <button type="button" class="faq-question">
-                    <span>Does Mental Math require an active internet connection?</span>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>No. All 12 levels, lessons, and 500+ text scenarios are fully stored offline on your device. You can train your brain anytime, including on flights, subways, or in airplane mode.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button type="button" class="faq-question">
-                    <span>How can I restore my purchases or premium status?</span>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Open the app, navigate to Settings or the Upgrade screen, and tap <strong>"Restore Purchases"</strong>. Ensure you are signed in with the same Apple ID you used for the original purchase.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button type="button" class="faq-question">
-                    <span>How do I report a bug or suggest a new math scenario?</span>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>We love user feedback! Send us an email at <a href="mailto:support@5daysweekend.com" style="color: var(--accent-color);">support@5daysweekend.com</a>. If reporting an issue with a specific calculation, please include the level or question text.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button type="button" class="faq-question">
-                    <span>Is my personal data or calculation history collected?</span>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>We respect your privacy. Mental Math runs locally on your device and does not sell or share personal data. You can review our full details in our <a href="privacy.html" style="color: var(--accent-color);">Privacy Policy</a>.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Five Days Weekend Games. All rights reserved.</p>
-        <p style="margin-top: 10px;">
-            <a href="index.html">Home</a>
-            <a href="support.html">Support</a>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Use</a>
-            <a href="legal.html">Legal Notice</a>
-        </p>
-    </footer>
-
-    <script>
-        document.querySelectorAll('.faq-question').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                const item = btn.parentElement;
-                const isActive = item.classList.contains('active');
-                
-                // Close other open items
-                document.querySelectorAll('.faq-item').forEach(function(other) {
-                    other.classList.remove('active');
-                });
-
-                if (!isActive) {
-                    item.classList.add('active');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
